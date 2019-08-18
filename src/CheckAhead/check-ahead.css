@@ -1,0 +1,70 @@
+.check-ahead-container input {
+  display: block;
+  border: none;
+  border-bottom: 1px solid #FFA177FF;
+  height: 2rem;
+  width: 20ch;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: transparent;
+}
+
+.check-ahead-container input::placeholder {
+  color: #e0e0e0;
+}
+
+.check-ahead-container input:active {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #FFA177FF;
+}
+
+.check-ahead-container input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #FFA177FF;
+}
+
+.check-ahead-container label {
+  color: #FFA177FF;
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+
+.check-ahead-container {
+  color: #fff;
+}
+
+.submit-button {
+  background-color: #FFA177FF;
+  border: 1px solid #F5C7B8FF;
+  color: #fff;
+  height: 3rem;
+  font-weight: 600;
+  border-radius: 50%;
+  height: 3rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #fa804b;
+}
+
+.submit-button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.messages-container {
+  color: #F5C7B8FF;
+}
