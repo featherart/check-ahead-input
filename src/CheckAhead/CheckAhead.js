@@ -10,8 +10,9 @@ export const CheckAhead = ({ label }) => {
   const [ hasLowerCase, setHasLowerCase ] = useState(false)
   const [ hasUpperCase, setHasUpperCase ] = useState(false)
   const [ hasNumbers, setHasNumbers ] = useState(false)
+  const [ hasSpecialChar, setHasSpecialChar ] = useState(false)
 
-  // Mention useState returns a pair of values
+  // useState returns a pair of values
   // the current state and the function that updates that value
 	const testInput = (input) => {
     const lowercaseTest = /[a-z]/ // just lowercase letters
@@ -23,14 +24,16 @@ export const CheckAhead = ({ label }) => {
     const numbersTest = /[0-9]/ // just numbers
     setHasNumbers(numbersTest.test(input))
 
-    const lengthTest = input.length >= 7
+    const specialCharsTest = /[*&%$#@]/
+    setHasSpecialChar(specialCharsTest.test(input))
+
+    const lengthTest = input.length >= 8
     setIsLongEnough(lengthTest)
   }
 
-  // Avoid Gotchas!
+  // without this the submit button won't be enabled/disabled as conditions change
   useEffect(() => {
     const shouldEnable = (isLongEnough && hasLowerCase && hasUpperCase && hasNumbers)
-    console.log(shouldEnable)
     setEnabled(shouldEnable)
   }
   , [isLongEnough, hasLowerCase, hasNumbers, hasUpperCase])
@@ -47,10 +50,11 @@ export const CheckAhead = ({ label }) => {
         </button>
       </div>
       <div className='messages-container'>
-        <div>{isLongEnough ? checkSpan : xSpan} password has 7 characters</div>
+        <div>{isLongEnough ? checkSpan : xSpan} password has 8 characters</div>
         <div>{hasLowerCase ? checkSpan : xSpan} password has a lowercase letter</div>
         <div>{hasUpperCase ? checkSpan : xSpan} password has a capital letter</div>
         <div>{hasNumbers ? checkSpan : xSpan} password has a number</div>
+        <div>{hasSpecialChar ? checkSpan : xSpan} password has a special character</div>
       </div>
 		</div>
 	)
